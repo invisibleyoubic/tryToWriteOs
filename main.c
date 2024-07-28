@@ -11,6 +11,6 @@ int _start()
     {
         *(screnPtr + itr) = color;
         itr += 2;
-        color++;
+        color += 25;
     } 
 }
