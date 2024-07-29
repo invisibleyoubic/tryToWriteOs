@@ -8,7 +8,7 @@ mkdir -p $OUT_DIR
 nasm boot.asm -f bin -o $OUT_DIR/boot.bin
 nasm kernel_entry.asm -f elf32 -o $OUT_DIR/entry.bin
 
-gcc -m32 -ffreestanding -c main.c -o $OUT_DIR/kernel.o
+gcc -m32 -fno-stack-protector -ffreestanding -c main.c -o $OUT_DIR/kernel.o
 
 ld -m elf_i386 -Ttext 0x1000 -o $OUT_DIR/kernel.img $OUT_DIR/entry.bin $OUT_DIR/kernel.o
 
